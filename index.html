@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Autor y Artista</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #08124a;
+            color: white;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .item h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .item p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .comic-item {
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .comic-item:hover {
+            transform: scale(1.05);
+        }
+
+        .comic-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .about-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #ccc;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Portafolio</h1>
+        <p>Autor y Artista</p>
+    </header>
+
+    <nav>
+        <a href="#videos">Videos</a>
+        <a href="#dibujos">Dibujos</a>
+        <a href="#comics">Cómics</a>
+        <a href="#historias">Historias</a>
+        <a href="#sobre-mi">Sobre Mí</a>
+    </nav>
+
+    <div class="container">
+        <section id="videos">
+            <h2>Videos</h2>
+            <div class="grid">
+                <div class="item">
+                    <h3>Título del Video 1</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p>[]</p>
+                </div>
+
+                <div class="item">
+                    <h3>Título del Video 2</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p>[]</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dibujos">
+            <h2>Dibujos</h2>
+            <div class="grid">
+                <div class="item">
+                    <h3>Título del Dibujo 1</h3>
+                    <img src="ruta-a-tu-imagen.jpg" alt="Dibujo 1" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                </div>
+
+                <div class="item">
+                    <h3>Título del Dibujo 2</h3>
+                    <img src="ruta-a-tu-imagen.jpg" alt="Dibujo 2" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                </div>
+            </div>
+        </section>
+
+        <section id="comics">
+            <h2>Cómics</h2>
+            <div class="comic-grid">
+                <div class="comic-item" onclick="openModal(this)">
+                    <img src="ruta-a-tu-comic1.jpg" alt="Cómic 1">
+                </div>
+
+                <div class="comic-item" onclick="openModal(this)">
+                    <img src="ruta-a-tu-comic2.jpg" alt="Cómic 2">
+                </div>
+
+                <div class="comic-item" onclick="openModal(this)">
+                    <img src="ruta-a-tu-comic3.jpg" alt="Cómic 3">
+                </div>
+            </div>
+        </section>
+
+        <section id="historias">
+            <h2>Historias</h2>
+            <div class="grid">
+                <div class="item">
+                    <h3>Título de la Historia 1</h3>
+                    <p>
+                       [Historia en proceso]
+                    </p>
+                </div>
+
+                <div class="item">
+                    <h3>Título de la Historia 2</h3>
+                    <p> 
+                        [Historia en proceso]
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-mi">
+            <h2>About me</h2>
+            <div class="about-content">
+                <p>
+                    Hello, I am RTD, an author and artist passionate about art and animation.
+                </p>
+                <p>
+                    Since I was little, I have liked to draw. I dedicate myself to creating all kinds of stories and drawing from them.
+                </p>
+                <p>
+                    My style is characterized by drawing traditionally, then transferring it to digital. 
+                    I am still trying to find a good style in digital, but in traditional I like to draw between realistic and animated, more animated than realistic.
+                </p>
+                <p>
+                    When I am not creating, I like to listen to music and sleep. 
+                </p>
+                <p>
+                    If you want to contact me or follow my work, you can find me on Instagram, Twitter, I am with the same name, but soon I want to add buttons so you can go directly there. 
+                    I am new to programming, to create this site I put together several pieces as best as I could, I am still studying and I am enjoying it although sometimes it is frustrating.
+                </p>
+                <p>
+                    Sorry Sorry if I mostly speak in Spanish, I am not good at English.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+<footer>
+    <p>&copy; <span id="currentYear"></span> RTD. Todos los derechos reservados.</p>
+</footer>
+
+    <script>
+function openModal(element) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImage");
+    var img = element.querySelector("img");
+
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+    }
+
+    function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+    }
+
+    document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+    closeModal();
+    }
+    });
+    
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
